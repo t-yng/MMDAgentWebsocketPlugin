@@ -16,12 +16,6 @@ app.use(corser.create());
 
 var server = http.createServer(app);
 
-/* port:3000で待機 */
-server.listen(3000, function(){
-	console.log("server listening on port 3000");
-});
-
-
 /* socket.IOのインスタンス生成 */
 var socketIO = require('socket.io');
 
@@ -41,3 +35,8 @@ app.post("/mmdagent/api/message", function(req, res){
 	res.send(req.body);
 });
 
+/* port:3000で待機 */
+port = process.env.PORT || 3000;
+server.listen(port, function(){
+	console.log("server listening on port 8080");
+});
