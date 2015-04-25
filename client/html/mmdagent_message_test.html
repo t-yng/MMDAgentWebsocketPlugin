@@ -12,6 +12,7 @@ $(function(){
 	$("#button").click(function(){
 		var url = "http://mmdagent-message-server.herokuapp.com/mmdagent/api/message";
 		var json = {
+			message_type : $("[name=message_type]").val(),
 			message : $("#message").val()
 		};
 
@@ -35,7 +36,13 @@ $(function(){
 </script>
 
 <body>
-<p>MESSAGE: <input type="text" id="message" size="50" placeholder="MMDAgentに送信するメッセージを入力"></p>
+<p>MESSAGE_TYPE：
+<select name="message_type">
+<option value="command">COMMAND_MESSAGE</option>
+<option value="event">EVENT_MESSAGE</option>
+</select>
+</p>
+<p>MESSAGE：<input type="text" id="message" size="50" placeholder="MMDAgentに送信するメッセージを入力"></p>
 <button id="button" type="button">送信</button>
 </body>
 
